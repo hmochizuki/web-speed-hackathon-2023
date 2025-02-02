@@ -19,7 +19,7 @@ type Props = {
   onSubmit: (orderFormValue: OrderFormValue) => void;
 };
 
-export const OrderForm: FC<Props> = ({ onSubmit }) => {
+const OrderForm: FC<Props> = ({ onSubmit }) => {
   const formik = useFormik<OrderFormValue>({
     initialValues: {
       city: '',
@@ -88,3 +88,5 @@ export const OrderForm: FC<Props> = ({ onSubmit }) => {
     </div>
   );
 };
+
+export default OrderForm;
