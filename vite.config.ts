@@ -48,7 +48,7 @@ export default defineConfig(async () => {
         brotliSize: true,
         filename: 'dist/stats.html',
         gzipSize: true,
-        open: true,
+        // open: true,
       }),
     ],
   };
