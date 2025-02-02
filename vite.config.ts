@@ -19,7 +19,7 @@ const getPublicFileList = async (targetPath: string) => {
   return publicFiles;
 };
 
-export default defineConfig(async ({ mode }) => {
+export default defineConfig(async ({ mode: _ }) => {
   const videos = await getPublicFileList(path.resolve(publicDir, 'videos'));
 
   return {

@@ -34,6 +34,7 @@ specifiers:
   csstype: 3.1.1
   currency-formatter: 1.5.9
   date-time-format-timezone: 1.0.22
+  es-toolkit: 1.32.0
   eslint: 8.29.0
   eslint-config-prettier: 8.5.0
   eslint-import-resolver-typescript: 3.5.3
@@ -101,6 +102,7 @@ dependencies:
   core-js: 3.29.0
   currency-formatter: 1.5.9
   date-time-format-timezone: 1.0.22
+  es-toolkit: 1.32.0
   formik: 2.2.9_react@18.2.0
   graphql: 16.6.0
   http-graceful-shutdown: 3.1.13
@@ -2924,6 +2926,10 @@ packages:
       is-date-object: 1.0.5
       is-symbol: 1.0.4
     dev: true
+
+  /es-toolkit/1.32.0:
+    resolution: {integrity: sha512-ZfSfHP1l6ubgW/B/FRtqb9bYdMvI6jizbOSfbwwJNcOQ1QE6TFsC3jpQkZ900uUPSR3t3SU5Ds7UWKnYz+uP8Q==}
+    dev: false
 
   /esbuild-android-64/0.15.17:
     resolution: {integrity: sha512-sUs6cKMAuAyWnJ/66ezWVr9SMRGFSwoMagxzdhXYggSA12zF7krXSuc1Y9JwxHq56wtv/gFAVo97TFm7RBc1Ig==}
