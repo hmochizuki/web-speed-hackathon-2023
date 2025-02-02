@@ -1,11 +1,11 @@
-import type { FC } from 'react';
+import { type FC, lazy } from 'react';
 import * as Router from 'react-router-dom';
 
-import { NotFound } from '../../../pages/NotFound';
-import { Order } from '../../../pages/Order';
-import { OrderComplete } from '../../../pages/OrderComplete';
-import { ProductDetail } from '../../../pages/ProductDetail';
-import { Top } from '../../../pages/Top';
+const Top = lazy(() => import('../../../pages/Top/Top'));
+const OrderComplete = lazy(() => import('../../../pages/OrderComplete/OrderComplete'));
+const Order = lazy(() => import('../../../pages/Order/Order'));
+const ProductDetail = lazy(() => import('../../../pages/ProductDetail/ProductDetail'));
+const NotFound = lazy(() => import('../../../pages/NotFound/NotFound'));
 
 import { useScrollToTop } from './hooks';
 

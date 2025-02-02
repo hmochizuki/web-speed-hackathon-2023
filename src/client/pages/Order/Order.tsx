@@ -14,7 +14,7 @@ import * as styles from './Order.styles';
 
 const OrderForm = lazy(() => import('../../components/order/OrderForm/OrderForm'));
 
-export const Order: FC = () => {
+const Order: FC = () => {
   const navigate = useNavigate();
 
   const { authUser, authUserLoading, isAuthUser } = useAuthUser();
@@ -94,3 +94,5 @@ export const Order: FC = () => {
     </>
   );
 };
+
+export default Order;
