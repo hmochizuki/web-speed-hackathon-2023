@@ -1,14 +1,20 @@
 import type { LimitedTimeOfferFragmentResponse } from '../graphql/fragments';
 
+// offers の中身の例
+// endDate: "1970-01-10T14:00:00+00:00"
+// id: 1303
+// price: 1629
+// startDate: "1970-01-10T12:00:00+00:00"
+
 export function getActiveOffer(
   offers: LimitedTimeOfferFragmentResponse[],
 ): LimitedTimeOfferFragmentResponse | undefined {
   const activeOffer = offers.find((offer) => {
-    const now = window.Temporal.Now.instant();
-    const startDate = window.Temporal.Instant.from(offer.startDate);
-    const endDate = window.Temporal.Instant.from(offer.endDate);
+    const now = new Date();
+    const startDate = new Date(offer.startDate);
+    const endDate = new Date(offer.endDate);
 
-    return window.Temporal.Instant.compare(startDate, now) < 0 && window.Temporal.Instant.compare(now, endDate) < 0;
+    return startDate < now && now < endDate;
   });
 
   return activeOffer;

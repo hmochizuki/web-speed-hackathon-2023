@@ -12,13 +12,13 @@ type Props = {
 };
 
 export class GetDeviceType extends Component<Props> {
-  private _timer: number | null;
+  private _rafId: number | null;
   private _windowWidth: number;
 
   constructor(props: Props) {
     super(props);
     this._windowWidth = window.innerWidth;
-    this._timer = null;
+    this._rafId = null;
   }
 
   componentDidMount(): void {
@@ -26,17 +26,17 @@ export class GetDeviceType extends Component<Props> {
   }
 
   componentWillUnmount(): void {
-    if (this._timer != null) {
-      window.clearImmediate(this._timer);
+    if (this._rafId != null) {
+      window.cancelAnimationFrame(this._rafId);
     }
   }
 
-  private _checkIsDesktop() {
+  private _checkIsDesktop = () => {
     this._windowWidth = window.innerWidth;
     this.forceUpdate(() => {
-      this._timer = window.setImmediate(this._checkIsDesktop.bind(this));
+      this._rafId = window.requestAnimationFrame(this._checkIsDesktop);
     });
-  }
+  };
 
   render() {
     const { children: render } = this.props;

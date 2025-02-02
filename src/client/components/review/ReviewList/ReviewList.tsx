@@ -18,7 +18,8 @@ export const ReviewList: FC<Props> = ({ reviews }) => {
   return (
     <ul className={styles.itemList()}>
       {reviews.map((review) => {
-        const endTime = window.Temporal.Instant.from(review.postedAt).toLocaleString('ja-jp', {
+        const date = new Date(review.postedAt);
+        const endTime = date.toLocaleString('ja-JP', {
           day: '2-digit',
           hour: '2-digit',
           minute: '2-digit',
