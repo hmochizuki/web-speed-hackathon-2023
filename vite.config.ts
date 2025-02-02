@@ -19,7 +19,7 @@ const getPublicFileList = async (targetPath: string) => {
   return publicFiles;
 };
 
-export default defineConfig(async () => {
+export default defineConfig(async ({ mode }) => {
   const videos = await getPublicFileList(path.resolve(publicDir, 'videos'));
 
   return {
@@ -33,6 +33,7 @@ export default defineConfig(async () => {
           experimentalMinChunkSize: 40960,
         },
       },
+      sourcemap: process.env.NODE_ENV === 'development' ? true : false,
       target: 'esnext',
     },
     plugins: [
@@ -51,5 +52,10 @@ export default defineConfig(async () => {
         // open: true,
       }),
     ],
+    server: {
+      watch: {
+        usePolling: true,
+      },
+    },
   };
 });

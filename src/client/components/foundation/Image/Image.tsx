@@ -8,6 +8,10 @@ type Props = Omit<ComponentProps<'img'>, 'className'> & {
 };
 
 export const Image: FC<Props> = ({ fill, ...rest }) => {
+  const src = rest.src
+    ?.replace(/\/(jpe?g|png)\//i, '/webp/')
+    ?.replace(/\.(jpe?g|png)$/i, '.webp');
+
   return (
     <img
       className={classNames(styles.container(), {
@@ -15,6 +19,7 @@ export const Image: FC<Props> = ({ fill, ...rest }) => {
       })}
       loading="eager"
       {...rest}
+      src={src}
     />
   );
 };
